@@ -32,16 +32,24 @@ const Register = () => {
         password
       });
       toast.success("Account created");
+
       navigate("/login");
     } catch (err) {
-      
+      toast.error("Something wrong!");
+
     }
     
   }
 
   return (
     <>
-      <AuthForm handleChange={handleChange} handlesubmit={handlesubmit} />
+      <div className='container-fluid'>
+          <div className='row'>
+            <div className='col-md-6 offset-md-3'>
+              <AuthForm handleChange={handleChange} handlesubmit={handlesubmit} />
+            </div>
+          </div>
+      </div>
     </>
   )
 }

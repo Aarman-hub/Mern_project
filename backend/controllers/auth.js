@@ -8,10 +8,10 @@ const sharp = require('sharp');
 
 exports.getUser = async (req, res) =>{
     try {
-        const user = await User.findById(req.user._id);
+        const user = await User.findById(req.user._id).select("-password").exec();
         res.json({user});
     } catch (err) {
-        
+        res.json({message:"Something wrong"});
     }
 }
 

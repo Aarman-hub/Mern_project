@@ -24,22 +24,26 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const {data} = await axios.post("http://localhost:8000/api/user/signin",{
+      await axios.post("http://localhost:8000/api/user/signin",{
         email,
         password
       });
       toast.success("Login Successfully.");
       navigate("/");
     } catch (err) {
-      toast.error(err);
+      toast.error("Something missing!");
     }
     
   }
 
   return (
-    <>
-      <LoginForm handleChange={handleChange} handlesubmit={handlesubmit} />
-    </>
+    <div className='container-fluid'>
+      <div className='row'>
+        <div className='col-md-6 offset-md-3'>
+          <LoginForm handleChange={handleChange} handlesubmit={handlesubmit} />
+        </div>
+      </div>
+    </div>
   )
 }
 
